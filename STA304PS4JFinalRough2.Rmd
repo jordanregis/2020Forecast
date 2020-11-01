@@ -92,27 +92,6 @@ raw_data <- read_dta("ns20200625.dta")
 raw_data <- labelled::to_factor(raw_data)
 ```
 
-```{r}
-select_data2 <- raw_data %>%
-  dplyr::select(vote_2016,
-                vote_2020,
-                trump_biden,
-                age,
-                gender,
-                orientation_group,
-                race_ethnicity,
-                hispanic,
-                census_region, 
-                education, 
-                medicare_for_all,
-                wall,
-                environment,
-                extra_trump_corona,
-                household_income,
-                raise_upper_tax,
-                employment
-  )
-```
 
 ```{r}
 select_data <- raw_data %>%
@@ -470,7 +449,19 @@ Since the 2020 election will likely be won by one of two parties, our response v
 
 
 ```{r}
-survey_glm <- glm(vote_2020 ~ 
+survey_glm <- glm(as.numeric(vote_2020 == "Donald Trump") ~ 
+                    age_group + 
+                    gender +
+                    census_region + 
+                    race_ethnicity + 
+                    language,
+                  family = 'binomial',
+                  data = clean_data
+)
+```
+
+```{r}
+survey_glm_plot <- glm(vote_2020 ~ 
                     age_group + 
                     gender +
                     census_region + 
@@ -483,7 +474,7 @@ survey_glm <- glm(vote_2020 ~
 
 # Model Validation
 
-```{r}
+```{r, include = FALSE}
 cv.glm(clean_data, survey_glm, K = 10)
 ```
 
@@ -522,7 +513,7 @@ With a sufficiently significant regression model based on sample data, this can 
 summary(survey_glm)
 ```
 
-Obseervations
+Observations
 In Table ___, we have displayed a table of summary statistics using ____________ which includes the predictor’s; estimate, standard error, z-value,  and p-value. Utilizing these values, we can determine the strength and significance of our predictor variables on __________.
 The estimate value tells us the change in the log-odds of the respondent’s vote going toward Donald Trump, given their response to the question and the standard error will tell us the expected error we will see in this estimate value. 
 The z-value and p-value work together to tell us whether or not we can reject the null hypothesis that our estimate value truly zero, this allows us to determine the significance of our predictions_____. To conform with a 95% confidence interval, we are looking for z-values with a magnitude greater than 1.96, and p-values with values smaller than 0.05. 
@@ -571,11 +562,64 @@ As we can see, for Spanish speakers, the p-value and z-value both pass our  test
 
 
 ```{r}
-plot_summs(survey_glm, plot.distributions = TRUE, inner_ci_level = .95)
+plot_summs(survey_glm_plot, plot.distributions = TRUE, inner_ci_level = .95)
 ```
 Graph ___ provides us with a visualization of these estimates as well as the distribution we expect around these estimates and thei 95% confidence intervals. The plot shows the log-odds estimates of each groups likelihood of voting for Biden. As we can see, just like our regression model suggested, white voters have an extremely low probability of voting for Biden in the election compared to black voters and those of other races have as well seem to heavily favor Trump. This helps to express the extreme significance a person's race has on their voting preference in the US.
 
 # Forecasting Results
+
+```{r}
+# Create Cells
+cell_counts <- clean_strat_data %>% 
+  group_by(age_group, gender, census_region, race_ethnicity, language) %>%
+  count() %>%
+  mutate(proportion = n/2603150
+         )
+
+```
+
+```{r,include=FALSE}
+# Create Prediction Vector
+predictions <- predict.glm(survey_glm, se.fit = TRUE, cell_counts, type = "response")
+```
+
+```{r}
+# Add Predictions to cell counts
+cell_counts2 <- cbind(cell_counts, predictions$fit, predictions$se.fit)
+```
+
+```{r}
+# First Forecasting Result
+vote_pred <- cell_counts2$proportion * cell_counts2$...8
+sum(vote_pred)
+```
+
+```{r}
+lower_pred = cell_counts2$...8 - cell_counts2$...9
+upper_pred = cell_counts2$...8 + cell_counts2$...9
+cell_counts2 <- cbind(cell_counts2, lower_pred, upper_pred)
+```
+
+```{r}
+cell_counts2 <- cell_counts2 %>% rename(
+  prediction = ...8,
+  StdError = ...9,
+  LowerBound = ...10,
+  UpperBound = ...11
+)
+```
+
+```{r}
+# Errors
+lower_vote_pred <- cell_counts2$proportion * cell_counts2$LowerBound
+sum(lower_vote_pred)
+upper_vote_pred <- cell_counts2$proportion * cell_counts2$UpperBound
+sum(upper_vote_pred)
+```
+
+
+
+
 
 
 After applying our regression function to our post-stratified cells and evaluating  the predictions that are made,  we find a final value of _______  0.48 with a standard error of _____ 0.02.

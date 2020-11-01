@@ -23,6 +23,28 @@ library(boot)
 
 ## Introduction
 
+INTRODUCTION:
+Broad Context
+In 2016, Donald Trump won the race for president of the United States which in turn rocked the world of statistical analysis as most pre-election predictions had suggested otherwise. This has led to an extremely heated political climate throughout the country that only grows in tension as election day approaches. 
+Over the past four years there has been a steadily growing pool of citizens that hope to see a new leader take over control of the country. In 2020, this movement has seen a significant surge in support especially due to the numerous difficulties the country has faced this year. 
+Through this study we will attempt to determine the possibility of this movement’s success by providing a forecast for the winner of the 2020 US election.
+ 
+How Does Voting Work
+In the US, a somewhat complex system is used to determine the next president which can make establishing a conclusive forecast very difficult. First, individuals cast their votes to elect a set of electors for their state, these electors then cast their final votes that actually decide on the winner of the election. As we only have data regarding these individual votes, we must base our forecast of the popular vote. While the popular and electoral votes often line up, the results of the 2016 election showed the exact opposite scenario and thus we must remain careful throughout this study to not __________ Something about being too confident about our predictions
+ 
+ What our Paper is Doing and what we Found
+In this paper we used multilevel regression modelling with post stratification to analyze the effects of key characteristics on a citizen’s voting decision and provide a final prediction on the outcome of the 2020 election. We have used two large survey datasets from ___________ and ___________ to accomplish this, applying our regression model to the smaller ___________ survey data and post-stratifying using the second and much larger ________ dataset to generate our forecast. 
+Our predictions suggest to us that, within a very small margin, Joe Biden will win the popular vote in the country primarily as a result of the effect a person’s race has on their political preference. 
+With the high amount of uncertainty not only in our model but in elections and voter preference as well, we cannot be completely certain of this forecast and must pay special attention to the factors likely to cause error in this prediction.
+Despite this, our paper is of great importance to voters as it provides an initial indication of the direction of the country for the next four years. While we may not be able to provide an indisputable forecast, this will still allow voters to begin making plans for the future rather than leave them completely in the dark. 
+Outline of Paper
+In Section 2 we present the datasets used for our analysis as well as the modifications made to this data to allow our regression model to function.
+Section __ provides a discussion of the model we have used for the study and examines the validity of its predictions. Additionally, we explain the multilevel modelling strategy used to generate forecasts and its strengths and weaknesses in this section.
+The results of this model and the forecasts in produces are presented in Section ___, along with details on how to properly interpret these values. 
+
+
+Finally, in Section ___, we have summarized the main findings of this study and discussed their validity and the factors that may render them incorrect.
+At the end of this paper we have added an appendix which includes a link to where the code used for this study lives. 
 
 
 ## Data Discussion
@@ -235,6 +257,23 @@ Lastly, in Graph ___ we display the regional distribution of respondents, dividi
 
 
 # ACS Survey Data
+
+
+
+The ACS data we used in this paper were collected by U.S. Census Bureau back in 2018. The 2018 American Community Survey is a cross-sectional sampling survey of 3 million U.S. households conducted on a monthly rolling basis. This survey provides a wide range of important statistics about people and housing for every community in the United States. For example, it produces statistics for language, education, commuting, employment, mortgage status and rent, as well as income, poverty, and health insurance.  Below we have displayed a preview of 2018 ACS Data.
+ 
+The American Community Survey consists of two separate samples: housing unit (HU) addresses and residents of group quarters(GQ) facilities. There are two phases of HU address sampling for each area. During first-phase sampling, Bureau assign blocks to sampling strata, calculate sampling rates, and select the sample. During the second phase of sampling, they select a sample of nonresponding addresses for Computer Assisted Personal Interviewing (CAPI). The data were finally collected in continuous, 3-month cycles using a combination of mailout/mailback, Computer Assisted Telephone Interviewing(CATI), and Computer Assisted Personal Interviewing (CAPI) data collection modes.
+The sampling frames were derived from the Census Bureau’s Master Address File (MAF). Since the ACS frame must be as complete as possible, the Census Bureau applies filtering rules during the creation of the 2018 ACS extracts to minimize both overcoverage and undercoverage and to obtain an inclusive listing of addresses. For example, the 2018 ACS filter rules include units that represent new construction units, some of which may not exist yet. The 2018 ACS also includes other housing units that are not geocoded, which means that the address is one that has not been linked to a census tract and block yet. In addition, the 2018 ACS includes units that are “excluded from delivery statistics” (EDS); these units often are those under construction. Also, to protect individual confidentiality, geographic identifiers are currently restricted to the state level, and individual variables, such as income and housing values, are top coded.
+ 
+In addition, the non-response problem was well handled. The ACS made every effort to minimize unit nonresponse, and thus, the potential for nonresponse error. First, the ACS used a combination of mail and CAPI data collection modes to maximize response. The mail phase included a series of three to four mailings to encourage housing units to return the questionnaire. Subsequently, a subsample of the mail nonrespondents were contacted by personal visit to attempt an interview. Combined, these efforts resulted in a very high overall response rate for the ACS.
+ 
+However, most of the variables needed to be understood in the ACS dictionary, so we reduced the number of variables we were interested in down to 18. In this paper, we regrouped our interested variables to match with survey data, for example, we regrouped age variable into “18 to 29", "30 to 39", "40 to 49", "50 to 59","60 +” to match with survey data.( more detail in appendix)These are the variables we are going to focus on : age, sex, race, language and region and our objective is to determine the relationship between these five variables and voters’ decision of the 2020 US presidential election.
+
+
+
+
+
+
 
 
 ```{r}
@@ -484,7 +523,7 @@ summary(survey_glm)
 ```
 
 Obseervations
-In Table ___, we have displayed a table of summary statistics using ____________ which includes the predictor’s; estimate, standard error, z-valuuee,  and p-value. Utilizing these values, we can determine the strength and significance of our predictor variables on __________.
+In Table ___, we have displayed a table of summary statistics using ____________ which includes the predictor’s; estimate, standard error, z-value,  and p-value. Utilizing these values, we can determine the strength and significance of our predictor variables on __________.
 The estimate value tells us the change in the log-odds of the respondent’s vote going toward Donald Trump, given their response to the question and the standard error will tell us the expected error we will see in this estimate value. 
 The z-value and p-value work together to tell us whether or not we can reject the null hypothesis that our estimate value truly zero, this allows us to determine the significance of our predictions_____. To conform with a 95% confidence interval, we are looking for z-values with a magnitude greater than 1.96, and p-values with values smaller than 0.05. 
 Interpret Rules
@@ -590,7 +629,6 @@ Similarly in the home language used by respondents, those using languages other 
 In the end, our forecast suggests that Joe Biden will win the popular vote by only a very small margin. Most often, electoral votes in each state align with the popular vote due to the method with which electors are chosen. Thus, if there are not any inconsistencies with this belief, we will likely see Biden taking office for the next four years. 
 Factoring in the error we expect on this forecast, we can see that the presidential race will be exceptionally close as Trump is suggested to win on the upper bound of this error. As a result, we make this forecast with great caution and with the intention that further work be carried out to find a stronger prediction to either side. 
 Unsurprisingly, Trump seems to gain the most amount of votes from white males above the age of 30 across all regions but primarily in the southern region. Conversely, younger female voters of all races appear to heavily favor Biden. 
-What might make this Forecast Wrong
 There are many areas that we believe can have a significant effect on making our forecast inaccurate. The distribution of our predictor variables and the heavily outweighed groups we see can cause problems with our models as errors in the estimates of highly populated groups will create a much larger shift in the number of votes each candidate gets. Furthermore, the underrepresented groups can be problematic as our regression model has less data to work with here, leaving us with _______________
 
 

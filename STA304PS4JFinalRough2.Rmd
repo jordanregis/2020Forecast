@@ -19,26 +19,20 @@ library(boot)
 
 ## Abstract
 
+2020 being an erratic year also marks the much-anticipated results of the United States Presidential election between the front-runners, Donald Trump and Joe Biden, on November 3rd, 2020. In this paper, we use both Nationscape survey and IPUMS data to conduct a regression analysis to determine the impact of social-demographic variables such as age, gender, language, region, and race of respondents on their choice of 2020 US presidential election. We discovered that age and race are strong predictors of respondents’ presidential election choice and we expect Biden to win 52 percent of the national popular vote, with a 2 percent margin error. Our findings can not only predict the 2020 presidential election but also provide references for future presidential elections.
 
+## 1 Introduction
 
-## Introduction
-
-INTRODUCTION:
-Broad Context
 In 2016, Donald Trump won the race for president of the United States which in turn rocked the world of statistical analysis as most pre-election predictions had suggested otherwise. This has led to an extremely heated political climate throughout the country that only grows in tension as election day approaches. 
 Over the past four years there has been a steadily growing pool of citizens that hope to see a new leader take over control of the country. In 2020, this movement has seen a significant surge in support especially due to the numerous difficulties the country has faced this year. 
 Through this study we will attempt to determine the possibility of this movement’s success by providing a forecast for the winner of the 2020 US election.
- 
-How Does Voting Work
-In the US, a somewhat complex system is used to determine the next president which can make establishing a conclusive forecast very difficult. First, individuals cast their votes to elect a set of electors for their state, these electors then cast their final votes that actually decide on the winner of the election. As we only have data regarding these individual votes, we must base our forecast of the popular vote. While the popular and electoral votes often line up, the results of the 2016 election showed the exact opposite scenario and thus we must remain careful throughout this study to not __________ Something about being too confident about our predictions
- 
- What our Paper is Doing and what we Found
-In this paper we used multilevel regression modelling with post stratification to analyze the effects of key characteristics on a citizen’s voting decision and provide a final prediction on the outcome of the 2020 election. We have used two large survey datasets from ___________ and ___________ to accomplish this, applying our regression model to the smaller ___________ survey data and post-stratifying using the second and much larger ________ dataset to generate our forecast. 
-Our predictions suggest to us that, within a very small margin, Joe Biden will win the popular vote in the country primarily as a result of the effect a person’s race has on their political preference. 
-With the high amount of uncertainty not only in our model but in elections and voter preference as well, we cannot be completely certain of this forecast and must pay special attention to the factors likely to cause error in this prediction.
+
+In the US, a somewhat complex system is used to determine the next president which can make establishing a conclusive forecast very difficult. First, individuals cast their votes to elect a set of electors for their state, these electors then cast their final votes that actually decide on the winner of the election. As we only have data regarding these individual votes, we must base our forecast of the popular vote. While the popular and electoral votes often line up, the results of the 2016 election showed the exact opposite scenario and thus we must remain careful throughout this study to remember this.
+
+In this paper we used multilevel regression modelling with post-stratification to analyze the effects of key characteristics on a citizen’s voting decision and provide a final prediction on the outcome of the 2020 election. We have used two large survey datasets from ___________ and ___________ to accomplish this, applying our regression model to the smaller ___________ survey data and post-stratifying using the second and much larger ________ dataset to generate our forecast. Our predictions suggest to us that, within a very small margin, Joe Biden will win the popular vote in the country primarily as a result of the effect a person’s race has on their political preference. With the high amount of uncertainty not only in our model but in elections and voter preference as well, we cannot be completely certain of this forecast and must pay special attention to the factors likely to cause error in this prediction.
 Despite this, our paper is of great importance to voters as it provides an initial indication of the direction of the country for the next four years. While we may not be able to provide an indisputable forecast, this will still allow voters to begin making plans for the future rather than leave them completely in the dark. 
-Outline of Paper
-In Section 2 we present the datasets used for our analysis as well as the modifications made to this data to allow our regression model to function.
+
+In Section 2, we present the datasets used for our analysis as well as the modifications made to this data to allow our regression model to function.
 Section __ provides a discussion of the model we have used for the study and examines the validity of its predictions. Additionally, we explain the multilevel modelling strategy used to generate forecasts and its strengths and weaknesses in this section.
 The results of this model and the forecasts in produces are presented in Section ___, along with details on how to properly interpret these values. 
 
@@ -47,23 +41,26 @@ Finally, in Section ___, we have summarized the main findings of this study and 
 At the end of this paper we have added an appendix which includes a link to where the code used for this study lives. 
 
 
-## Data Discussion
+## 2 Data Discussion
 
 # Nationscape Survey Data
 
 
 
 Democracy Fund plus UCLA Nationscape is a partnership between Democracy Fund Voter Study Group and University of California Los Angeles Political Scientists Chris Tausanovitch and Lynn Vavreck. It is one of the largest public opinion survey projects ever conducted — interviewing people in nearly every county, congressional district, and mid-sized U.S. city covering the U.S. 2020 campaign and election. 
-Data Collection occurred through weekly surveys conducted by Nationscape. It began with the week of July 18, 2019 and concluded the week of December 26, 2019 (last interview on January 1, 2020). Phase 1 of the data, released in January of 2020, includes nearly 156,000 cases collected over 24 weeks. Phase 2 of the data, released in September of 2020, includes a re-release of Phase 1 data and new data from January 2020 to July 2020 (Phase 2 data) with the total cases being 318,697.
-Each data set is named after its first field date and is in the field for a week.The survey has been in the field since July 10, 2019, and it includes interviews in English with roughly 6,250 people per week. The interviews for the survey were conducted online in places where the respondents had access to the internet through a mobile device or computer. On average, 12% of the respondents who were asked to take the survey declined immediately while 5% did not complete the survey, and 8% of the respondents sped or straight-lined through the survey. According to the surveyors, respondents are considered to be speeding if they complete the survey in fewer than 6 minutes. Straight-lining through a survey occurs when respondents rush through the survey, clicking the same response every time. This usually happens when respondents are bored or impatient. In this survey, respondents were considered to be straight lining if they selected the same response for every question in the three policy question batteries. This resulted in an average yield of roughly 75% of the original invited sample, depending on wave. 
+Data Collection occurred through weekly surveys conducted by Nationscape. It began with the week of July 18, 2019, and concluded the week of December 26, 2019 (last interview on January 1, 2020). Phase 1 of the data, released in January of 2020, includes nearly 156,000 cases collected over 24 weeks. Phase 2 of the data, released in September of 2020, includes a re-release of Phase 1 data and new data from January 2020 to July 2020 (Phase 2 data) with the total cases being 318,697.
+Each data set is named after its first field date and is in the field for a week. The survey has been in the field since July 10, 2019, and it includes interviews in English with roughly 6,250 people per week. The interviews for the survey were conducted online in places where the respondents had access to the internet through a mobile device or computer. On average, 12% of the respondents who were asked to take the survey declined immediately while 5% did not complete the survey, and 8% of the respondents sped or straight-lined through the survey. According to the surveyors, respondents are considered to be speeding if they complete the survey in fewer than 6 minutes. Straight-lining through a survey occurs when respondents rush through the survey, clicking the same response every time. This usually happens when respondents are bored or impatient. In this survey, respondents were considered to be straight-lining if they selected the same response for every question in the three policy question batteries. This resulted in an average yield of roughly 75% of the original invited sample, depending on the wave.  
 There are roughly 200 variables in each weekly file. They are named to reflect the topic they measure. There is a rotating set of questions that vary over weeks of fielding, resulting in different numbers of variables in different weeks. Moreover, there were a number of changes made to the variables during different waves. For example, in wave 47 (2020-06-04, pilot-testing for general election vote questions began and the variable vote_2020_v1 was added, the question stem of which was changed later, with the variable being renamed as vote_2020 in Wave 49 and forward.
-Nationscape samples were provided by Lucid, a market research platform that runs an online exchange for survey respondents. The samples drawn from this exchange match a set of demographic quotas on age, gender, ethnicity, region, income, and education. Respondents were sent from Lucid directly to survey software operated by the Nationscape team. The sampling method used in this survey was convenience sampling based on demographic criteria. Convenience sampling is a non-probability sampling method in which researchers use nearest and most conveniently available participants as the sample. This was essentially due to low response rates.
+Nationscape samples were provided by Lucid, a market research platform that runs an online exchange for survey respondents. The samples drawn from this exchange match a set of demographic quotas on age, gender, ethnicity, region, income, and education. Respondents were sent from Lucid directly to survey software operated by the Nationscape team. The sampling method used in this survey was convenience sampling based on demographic criteria. Convenience sampling is a non-probability sampling method in which researchers use the nearest and most conveniently available participants as the sample. This was essentially due to low response rates. 
 
 The survey, itself, in general, is a lengthy one comprising three main types of survey questions. Some ask respondents to report attitudes, such as whether they trust their neighbours. Other questions are about reported behaviours, such as voter turnout, which depend on respondents’ recall. The third type of question asks people to report facts about their lives, such as how many children they have, whether they own their home, or how many cigarettes they have smoked in their lives. 
 
-The survey data was then weighted to be representative of the American population, based on the following factors: gender, the four major census regions (the four regions are Northeast, Midwest, West and South according to the US Census Bureau.) , race, Hispanic ethnicity, household income, education, age, language spoken at home, nativity (U.S.- or foreign-born), 2016 presidential vote, and the urban-rural mix of the respondent’s ZIP code as well as the following interactions: Hispanic ethnicity by language spoken at home, education by gender, gender by race, race by Hispanic origin, race by education, and Hispanic origin by education. The  weights were generated using a simple raking technique, generated for each week’s survey. The targets to which Nationscape is weighted was derived from the adult population of the 2017 American Community Survey of the U.S. Census Bureau, with the exception of the 2016 vote, which is derived from the official election results released by the Federal Election Commission. Representativeness Assessment closely follows the Pew Research Center’s evaluations of online non-probability samples in 2016 and 2018 as well as Pew’s American Trends Panel (which was recruited using probability sampling) particularly for some smaller items. Pew compares the estimates generated by online vendors to estimates of the same quantities in census data and other high-quality sources, primarily the American Community Survey and supplements to the Current Population Study. Similar to Pew, the difference between the targets and the estimates across all the items is calculated in order to have the same amount of error as Pew(on average). 
+The survey data was then weighted to be representative of the American population, based on the following factors: gender, the four major census regions (the four regions are Northeast, Midwest, West and South according to the US Census Bureau.), race, Hispanic ethnicity, household income, education, age, language spoken at home, nativity (U.S.- or foreign-born), 2016 presidential vote, and the urban-rural mix of the respondent's ZIP code as well as the following interactions: Hispanic ethnicity by language spoken at home, education by gender, gender by race, race by Hispanic origin, race by education, and Hispanic origin by education. The weights were generated using a simple raking technique, generated for each week's survey. The targets to which Nationscape is weighted was derived from the adult population of the 2017 American Community Survey of the U.S. Census Bureau, with the exception of the 2016 vote, which is derived from the official election results released by the Federal Election Commission. Representativeness Assessment closely follows the Pew Research Center’s evaluations of online non-probability samples in 2016 and 2018 as well as Pew’s American Trends Panel (which was recruited using probability sampling) particularly for some smaller items. Pew compares the estimates generated by online vendors to estimates of the same quantities in census data and other high-quality sources, primarily the American Community Survey and supplements to the Current Population Study. Similar to Pew, the difference between the targets and the estimates across all the items is calculated in order to have the same amount of error as Pew(on average). 
 
-For our model, we use the survey of the week of June 25th, 2020, namely, the 20200625 dataset. Pertaining to the generic pattern used in this research, it is a lengthy survey with a variety of questions ranging from demographic variables, to Covid-19 related ones as well as a collection of policy questions. Randomization was employed while conducting the survey, particularly for some policy questions. The policy questions were divided into two segments. Respondents were first asked two policy questions at random from abortion_any_time, abolish_priv_insurance, criminal_immigration, china_tariffs, egypt, saudi_arabia, and immigration_insurance. They were then asked 8 random policy questions from the remaining policy questions which comprised the second segment. Missing data is mainly coded to indicate the reason they are missing using the following codes: 888-Asked in this wave, but not asked of this respondent , 999-Not sure, don’t know, “ ” - Respondent skipped. Our model uses vote_2020, age, gender, race_ethnicity, census_region and language.
+For our model, we use the survey of the week of June 25th, 2020, namely, the 20200625 dataset. Pertaining to the generic pattern used in this research, it is a lengthy survey with a variety of questions ranging from demographic variables to Covid-19 related ones as well as a collection of policy questions. Randomization was employed while conducting the survey, particularly for some policy questions. The policy questions were divided into two segments. Respondents were first asked two policy questions at random from abortion_any_time, abolish_priv_insurance, criminal_immigration, china_tariffs, egypt, saudi_arabia, and immigration_insurance. They were then asked 8 random policy questions from the remaining policy questions which comprised the second segment. Missing data is mainly coded to indicate the reason they are missing using the following codes: 888-Asked in this wave, but not asked of this respondent, 999-Not sure, don't know, " " - Respondent skipped. Our model uses vote_2020, age, gender, race_ethnicity, census_region and language.
+
+
+
 
 
 
@@ -72,17 +69,18 @@ For our model, we use the survey of the week of June 25th, 2020, namely, the 202
 In this study we will be examining the effects of a person’s; age, gender, region, race, and household language on their intended vote in the 2020 US Election. To begin preparing our Nationscape survey data, using the select() function from the dplyr package, we selected only these variables of interest from our data and created a new dataset with them. 
 Next, as the US election will most likely be a race between Joe Biden and Donald Trump, we filtered out all respondents that showed no interest in voting for either of these candidates. 
  
-Since we are using post stratification in this study, this requires both of our datasets to have matching column names and response options. To accomplish this, we made a few more alterations to our dataset.
+Since we are using post-stratification in this study, this requires both of our datasets to have matching column names and response options. To accomplish this, we made a few more alterations to our dataset.
 We first classify our respondents based on their age group rather than their numerical age  These were set up as breaks starting from 18 to 29 and followed a ten year age gap up until age 60 where we classify these respondents as 60 +. Grouping by age allows us to more easily create cells we can organize respondents into and generate overall forecasts from.
 To correct for the differences in responses in race across the data we organized the respondents into three primary groups based on the highest proportions we saw in the data: Black or African American, White, or Other. 
 Lastly, to account for response inconsistencies between datasets in household language, much like our method for race, we organized respondents into three groups based on the proportion of languages used in the US: English, Spanish, or Other.
 English and Spanish can be considered the national languages of the USA as their proportions greatly outweigh all other language options which is why we chose to pay special attention to them in our analysis.
 For both gender, and participant region, these variables were already set up exactly as required by the Nationscape Data team and thus we had to perform no additional alterations to them.
-
-Upon examining our organized dataset, we see that there are many NA values, especially in the responses to age. This is largely due to the fact that there are over 500,000 respondents under the age of 18 that our age groups were not designed to include. As voting age in the US is 18 years and above, we are able to remove these respondents from our dataset without it harming the real-world interpretations of our forecasting. ______________________. 
 In addition to these, we also found many NA values that were provided by the survey data itself, likely due to cases of non-response.
 To remove these values we applied the na.omit() function from the base R package to our cleaned dataset so that we are left with only complete cases. 
-By doing this, we allow our regression model to properly function with our data as it ensures that the number of observations from our model matches the size of our dataset. 
+By doing this, we allow our regression model to properly function with our data as it ensures that the number of observations from our model matches the size of our dataset.
+
+  
+ 
 
 
 ```{r}
@@ -137,50 +135,52 @@ clean_data <- clean_data %>%
 ```{r}
 clean_data %>% 
   ggplot(aes(x = vote_2020)) + 
-  geom_bar() + 
-  labs(title = "Vote Decisions of Respondents", 
+  geom_bar(colour="black", fill = 'blue') + 
+  labs(title = "Graph 1: Vote Decisions of Respondents", 
        x = "Vote Choice",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_data$vote_2020))
+       ) + 
+  theme_minimal()
+
 ```
 
 
 VOTE 2020:
-In our first plot, Graph ___, we display the results of which candidate respondents are likely to vote for in the 2020 election. We have isolated the data for this plot to display only Donald Trump or Joe Biden voters as these are the only two probable winners of the election and this is what we will base our forecasting on. 
+In our first plot, Graph 1, we display the results of which candidate respondents are likely to vote for in the 2020 election. We have isolated the data for this plot to display only Donald Trump or Joe Biden voters as these are the only two probable winners of the election and this is what we will base our forecasting on. 
 As we can see, Biden voters slightly outweigh Trump voters, coming in with a proportion of 52% compared to 48% respectively. This can give us an initial idea of what party voters are currently favouring and how we can expect to see the popular vote split up.
 The small proportional difference between candidates suggests that the presidential race will not be easily won by either party and forecasting the outcome will require thorough analysis.
+
 
 ```{r}
 clean_data %>% 
   ggplot(aes(x = age_group)) + 
-  geom_bar() +
-  labs(title = "Age Proportions of Respondents", 
+  geom_bar(colour = "black", fill = "darkturquoise") +
+  labs(title = "Graph 2: Age Proportions of Respondents", 
        x = "Age",
        y = "Number of Respondents"
-       )
+       ) + 
+  theme_minimal()
 ```
 
 AGE:
-Graph ___ displays the age distribution of respondents to the survey. It appears that the highest number of respondents fall into the age group 60 + with the other groups holding similar proportions at a lower level. This is likely a result of how we decided to group our age data as we chose the cap to be 60 +, this leaves a much larger gap for ages than our other 10 year groups. Due to this, this result was to be expected however, it may possibly result in a high standard error in our prediction for this group as it may contain too high of a variation of voters ____________________________________ . 
+Graph 2 displays the age distribution of respondents to the survey. It appears that the highest number of respondents fall into the age group 60 + with the other groups holding similar proportions at a lower level. This is likely a result of how we decided to group our age data as we chose the cap to be 60 +, this leaves a much larger gap for ages than our other 10 year groups. Due to this, this result was to be expected however, it may possibly result in a high standard error in our prediction for this group as it may contain too high of a variation of voters. 
 
-were aged between 30 and 40 with much lower proportions below 20 and above 80. Again we can see from the real-world weightings used by the Nationscape team that these values fall right in line.
-This suggests to us that,
+
 
 ```{r}
 clean_data %>% 
   ggplot(aes(x = gender)) + 
-  geom_bar() + 
-  labs(title = "Gender Proportions of Respondents", 
+  geom_bar(colour = "black", fill = "firebrick2") + 
+  labs(title = "Graph 3: Gender Proportions of Respondents", 
        x = "Gender",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_data$gender))
+       ) +
+  theme_minimal()
+
 ```
 
 GENDER:
-From Graph ___, we can see an almost exactly even split between Female and Male respondents with proportions of approximately 50% each and a true difference of about 0.5%. This is not surprising at all considering the current gender proportions in the US were used for the weighting of the response data for this survey. 
-As a result, our model and results should not be disturbed by this distribution?
+From Graph 3, we can see an almost exactly even split between Female and Male respondents with proportions of approximately 50% each and a true difference of about 0.5%. This is not surprising at all considering the current gender proportions in the US were used for the weighting of the response data for this survey. As a result, our model and results should not be disturbed by this distribution.
 
 
 
@@ -188,51 +188,49 @@ As a result, our model and results should not be disturbed by this distribution?
 ```{r}
 clean_data %>% 
   ggplot(aes(x = race_ethnicity)) + 
-  geom_bar() + 
-  labs(title = "Races of Respondents", 
+  geom_bar(colour = "black", fill = "orangered1") + 
+  labs(title = "Graph 4: Races of Respondents", 
        x = "Race",
        y = "Number of Respondents"
        ) + 
-  coord_flip()
-prop.table(table(clean_data$race_ethnicity))
+  coord_flip() + 
+  theme_minimal()
 ```
 
-RACES:
 
-In Graph ___, we display the proportion of different races in our data. These races have been categorized as; White, Black or African American, or Other. These groups were made with consideration to the most popular races in the US. It is extremely clear that the proportion of white voters greatly outweighs all other options with a total proportion of almost 76%. Considering the current distribution of races in the US this is not surprising at all as the country has an extremely high population of white citizens compared to all other races. 
+In Graph 4, we display the proportion of different races in our data. These races have been categorized as; White, Black or African American, or Other. These groups were made with consideration to the most popular races in the US. It is extremely clear that the proportion of white voters greatly outweighs all other options with a total proportion of almost 76%. Considering the current distribution of races in the US this is not surprising at all as the country has an extremely high population of white citizens compared to all other races. 
 
 
 
 ```{r}
 clean_data %>% 
   ggplot(aes(x = language)) + 
-  geom_bar() + 
-  labs(title = "Languages Used by Respondents", 
+  geom_bar(colour = "black", fill = "springgreen4") + 
+  labs(title = "Graph 5: Languages Used by Respondents", 
        x = "Language Used at Home",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_data$language))
+       ) + 
+  theme_minimal()
 
 ```
 
-LANGUAGES:
-Graph ___ presents the distribution of household languages used by respondents to the survey. Respondents are classified as Enligsh using, Spanish using, or users of an alternative language. As is evident, the highest proportion of respondents, by an extremely large margin, used Enligh as their primary language making up more than 85% of our data. Much like the responses to the question of race, this result was entirely expected as English is often considered the national language of the US and most of North America for that matter. Thus we expect that this should not hinder our model's predictive performance. 
+
+Graph 5 presents the distribution of household languages used by respondents to the survey. Respondents are classified as English using, Spanish using, or users of an alternative language. As is evident, the highest proportion of respondents, by an extremely large margin, use English as their primary language making up more than 85% of our data. Much like the responses to the question of race, this result was entirely expected as English is often considered the national language of the US and most of North America for that matter.  Moreover, the survey was conducted in English implying that people using English as their first language would be more likely to take the survey compared to people who speak other languages. Thus we expect that this should not hinder our model's predictive performance.  
+
 
 
 ```{r}
 clean_data %>% 
   ggplot(aes(x = census_region)) + 
-  geom_bar() + 
-  labs(title = "Regional Distribution of Respondents", 
+  geom_bar(colour = "black", fill = "mediumseagreen") + 
+  labs(title = "Graph 6: Regional Distribution of Respondents", 
        x = "Vote Choice",
        y = "Number of Respondents"
-       )
-
-prop.table(table(clean_data$census_region))
+       ) +
+  theme_minimal()
 ```
 
-REGION:
-Lastly, in Graph ___ we display the regional distribution of respondents, dividing using the four main regions of the US; Northeast, Midwest, South, and West. There is a relatively similar proportion between the Northeast, Midwest, and West regions, each making up between 21% and 22% of our sample, however the Southern region heavily outweighs the others with a proportion of 38%. These results almost perfectly match real-world reports on US populations in each region, providing further evidence that the sample we have collected is properly representative of the US population.
+Lastly, in Graph 6 we display the regional distribution of respondents, dividing using the four main regions of the US; Northeast, Midwest, South, and West. There is a relatively similar proportion between the Northeast, Midwest, and West regions, each making up between 21% and 22% of our sample, however the Southern region heavily outweighs the others with a proportion of 38%. These results almost perfectly match real-world reports on US populations in each region, providing further evidence that the sample we have collected is properly representative of the US population.
 
 
 # ACS Survey Data
@@ -251,9 +249,9 @@ However, most of the variables needed to be understood in the ACS dictionary, so
 
 
 
+To allow this data to enter our regression function we matched up the question and response options from this ACS dataset to those in our original survey Dataset. Thus, all groups for these graphs will appear the exact same except with slightly different distributions.
 
-
-
+Upon examining our organized dataset, we see that there are many NA values, especially in the responses to age. This is largely due to the fact that there are over 500,000 respondents under the age of 18 that our age groups were not designed to include. As voting age in the US is 18 years and above, we are able to remove these respondents from our dataset without it harming the real-world interpretations of our forecasting.
 
 ```{r}
 raw_strat_data <- read_dta("usa_00002.dta")
@@ -344,23 +342,22 @@ clean_strat_data <- clean_strat_data %>%
   labelled::to_factor()
 ```
 
-# Preamble
-To allow this data to enter our regression function we matched up the question and response options from this ACS dataset to those in our original survey Dataset. Thus, all groups for these graphs will appear the exact same except with slightly different distributions.
 
 # Display of ACS Survey Data
 
 ```{r}
 clean_strat_data %>% 
   ggplot(aes(x = age_group)) + 
-  geom_bar() +
-  labs(title = "Age Proportions of Respondents", 
+  geom_bar(colour = "black", fill = "darkturquoise") +
+  labs(title = "Graph 7: Age Proportions of Respondents", 
        x = "Age",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_strat_data$age_group))
+       ) +
+  theme_minimal()
 ```
 AGE:
-Graph ___ plots the distribution in age groups we see across our data. Much like our survey data we see an extremely large proportion of respondents fall into the 60 + age group totalling over 35%. We can see the remaining groups making up much smaller proportions between 14% and 18% each. For the same reasons mentioned previously, this result was to be expected and we expect this to have the same possible result of standard error in our predictions that we must pay attention to.
+Graph 7 plots the distribution in age groups we see across our data. Much like our survey data we see an extremely large proportion of respondents fall into the 60 + age group totaling over 35%. We can see the remaining groups making up much smaller proportions between 14% and 18% each. For the same reasons mentioned previously, this result was to be expected and we expect this to have the same possible result of standard error in our predictions that we must pay attention to. However, according to the latest statistic, people over the age of 65 make up 16 percent of the total population in the United States, and our data show that people over the age of 60 make up about 35 percent. This may cause some disruptions to our model’s strength as older respondents tend to vote for Biden. As a result of this, we may see a slight overestimation of the strengths of this predictor.
+
 
 
 
@@ -368,62 +365,61 @@ Graph ___ plots the distribution in age groups we see across our data. Much like
 ```{r}
 clean_strat_data %>% 
   ggplot(aes(x = gender)) + 
-  geom_bar() + 
-  labs(title = "Gender Proportions of Respondents", 
+  geom_bar(colour = "black", fill = "firebrick2") + 
+  labs(title = "Graph 8: Gender Proportions of Respondents", 
        x = "Gender",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_strat_data$gender))
+       ) + 
+  theme_minimal()
 ```
 GENDER: 
-In Graph ___, we display the proportion of each gender in our dataset. Again we see an extremely close difference between Female and Male respondents, making up 52% and 48% of our dataset respectively. The slightly higher proportional difference we see is most likely due simply to a variation in individuals contacted in this survey compared to our original data. As a result, we do not believe that this should cause any problem with our model's performance.
+In Graph 8, we display the proportion of each gender in our dataset. Again, we see an extremely close difference between Female and Male respondents, making up 52% and 48% of our dataset, respectively. The slightly higher proportional difference we see is most likely due simply to a variation in individuals contacted in this survey compared to our original data. As a result, we do not believe that this should cause any problem with our model's performance.
+
 
 ```{r}
 clean_strat_data %>% 
   ggplot(aes(x = race_ethnicity)) + 
-  geom_bar() + 
-  labs(title = "Races of Respondents", 
+  geom_bar(colour = "black", fill = "orangered1") + 
+  labs(title = "Graph 9: Races of Respondents", 
        x = "Race",
        y = "Number of Respondents"
        ) + 
-  coord_flip()
-prop.table(table(clean_strat_data$race_ethnicity))
+  coord_flip() + 
+  theme_minimal()
 ```
 RACES:
-From Graph ___, we see an extremely similar result in the race distribution of respondents to that of our original data. With White respondents making up over 78% of our data we are not surprised at all by this result given the real distribution of races in the US today and therefore do not believe that it will create any problems with our regression analysis.
+From Graph 9, we see an extremely similar result in the race distribution of respondents to that of our original data. With White respondents making up over 78% of our data we are not surprised at all by this result given the real distribution of races in the US today and therefore do not believe that it will create any problems with our regression analysis.
 
 ```{r}
 clean_strat_data %>% 
   ggplot(aes(x = language)) + 
-  geom_bar() + 
-  labs(title = "Languages Used by Respondents", 
+  geom_bar(colour = "black", fill = "springgreen4") + 
+  labs(title = "Graph 10: Languages Used by Respondents", 
        x = "Language Used at Home",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_strat_data$language))
+       ) + 
+  theme_minimal()
 
 ```
 LANGUAGES: 
-Much like the results seen in our original data, Graph ___ displays the proportions of household languages used by our respondents and signifies an extremely large proportion of English users. Making up almost 82% of our data this result is as exactly as expected. Examining Graph ___ we can see that the low proportions of other races seen in the US are the likely cause of this significant difference.
+Much like the results seen in our original data, Graph 10 displays the proportions of household languages used by our respondents and signifies an extremely large proportion of English users. Making up almost 82% of our data this result is as exactly as expected. Examining Graph 9 again, we can see that the low proportions of other races seen in the US are the likely cause of this significant difference.
 
 
 ```{r}
 clean_strat_data %>% 
   ggplot(aes(x = census_region)) + 
-  geom_bar() + 
-  labs(title = "Regional Distribution of Respondents", 
+  geom_bar(colour = "black", fill = "mediumseagreen") + 
+  labs(title = "Graph 11: Regional Distribution of Respondents", 
        x = "Vote Choice",
        y = "Number of Respondents"
-       )
-prop.table(table(clean_strat_data$census_region))
+       ) + 
+  theme_minimal()
 ```
 
 REGION:
-Finally, in Graph ___, we have displayed the regional distribution of our respondents. As we can see, the large proportion of southern voters seen in our original survey dataset is present here as well with the other regions making up similarly smaller proportions. Again, Southern voters make up a total of 37% of this data exactly as expected given the regional distribution seen today. 
+Finally, in Graph 11, we have displayed the regional distribution of our respondents. As we can see, the large proportion of southern voters seen in our original survey dataset is present here as well with the other regions making up similarly smaller proportions. Again, Southern voters make up a total of 37% of this data exactly as expected given the regional distribution seen today. 
 
-# Whatever you call an end Preamble
-Now that we have viewed all our our predictor variables and confirmed that there were no _______thinkers_______ in the data, we are ready to move on to creating cells for our data and making forecasts for the election based on these.
-
+Now that we have viewed all our our predictor variables and confirmed that there were no troubling observations in the data, we are ready to move on to developing our model and begin to make forecasts for the election based on this. 
 
 
 
@@ -432,8 +428,8 @@ Now that we have viewed all our our predictor variables and confirmed that there
 
 # Regression Model
 
-For the purposes of this study, we will be using a (binomial) logistic regression model to both analyze the Nationscape survey data and forecast the election results using the IPUMS data. To accomplish these tasks we will be using R to carry out our analyses.
-A (binomial) logistic regression is a type of generalized linear model of the binomial family.
+For the purposes of this study, we will be using a binomial logistic regression model to both analyze the Nationscape survey data and forecast the election results using the ACS data. To accomplish these tasks we will be using R to carry out our analyses.
+A binomial logistic regression is a type of generalized linear model of the binomial family.
 Generalized linear regression models are generalizations of linear models that don’t include the same harsh requirements such as a normally distributed response variable. This model allows us to link our response variable to a specific distribution function known as the model’s family.
 In this case, the binomial distribution, being a series of Bernoulli distributions, requires a response variable with binary outcomes; 0 or 1, heads or tails, true or false, etc. 
 
@@ -480,6 +476,53 @@ cv.glm(clean_data, survey_glm, K = 10)
 
 Using a 10-fold cross validation analysis, we find a cross validation estimate of prediction error of 0.22. More simply, when we split our survey data into 10 groups and cross validate 10 times using each of these subsamples as a testing set, we compute an average prediction error 0.22. Taking into account that we are on a log-odds scale, this value means that our model's predictive strength will not be extremely strong as errors can seriously sway final results. THere are a number of possible causes for this such as a conservative number of explanatory variables and likely the generally complex set of factors that determine an individual's political preference. With future analysis this value can be brought down to allow for more precise predictions, however, our analysis will still provide important information regarding a person's voting choice and the likely outcome of the 2020 US election.
 
+```{r}
+test_data_MSPE <- clean_data %>%
+  mutate(id = row_number())
+
+test_data_msres <- clean_data %>% 
+  mutate(id = row_number())
+```
+
+```{r, warning = FALSE}
+# Splicing Data into Testing and Training Set
+set.seed(5799893)
+glm_test_MSPE <- sample_n(test_data_MSPE, 1295)
+glm_test_msres <- test_data_msres %>%
+  anti_join(test_data_MSPE)
+```
+
+```{r}
+#Model validation, comparing MSPE and MSres
+# fitting sample dataset to our model
+glm_test1 <- glm(as.numeric(vote_2020 == "Donald Trump") ~ 
+                    age_group + 
+                    gender +
+                    census_region + 
+                    race_ethnicity + 
+                    language,
+                  family = 'binomial',
+                  data = test_data_msres)
+
+glm_test2 <- glm(as.numeric(vote_2020 == "Donald Trump") ~ 
+                    age_group + 
+                    gender +
+                    census_region + 
+                    race_ethnicity + 
+                    language,
+                  family = 'binomial',
+                  data = test_data_MSPE)
+                      
+#calculation of the mspe for sample dataset
+mspe = sum(resid(glm_test2)^2)/ length(test_data_MSPE$vote_2020)
+#calculation of the MSres for our main dataset
+# 13 represent the degrees of freedom in our model 
+msres = sum(resid(glm_test1)^2)/(length(test_data_msres$vote_2020) - 13)
+mspe
+msres
+```
+Next to further validate our model we tested to find the MSPE and MSRes of our model. We decided that the 20% of the data set should be to calculate the MSPE, which was 1040 observations and the remaining 4160 were used to calculate the MSRes. Through running calculations in R, we found the MSPE to be 1.26, when compared to the MSres from our model, at 1.26 as well, we find that true the difference is smaller than 0.04. An MSPE value that is close to the MSRes value based on the regression fit to the model-building data set, indicates a high predictive ability of our model. Thus, this incredibly small difference helps to prove the validity of our model selection being a binomial regression and its strength of prediction.
+
 
 # Multilevel Modelling
 
@@ -505,13 +548,42 @@ With a sufficiently significant regression model based on sample data, this can 
 
 
 
-## Results 
 
-# Regression Model Results
 
 ```{r}
 summary(survey_glm)
 ```
+
+```{r}
+summ(model = survey_glm)
+```
+
+
+From this output, we can determine the formula for our final regression model:
+
+log(Y/(1-Y)) = -2.81 + 0.47A1 + 0.65A2 + 0.61A3 + 0.45A4 + 0.43G1 + 0.11C1 + 0.45C2 + 0.03C3 + 1.58R1 + 2.18R2 - 0.18L1 - 0.36L2
+
+Where:
+
+Y represents the probability of an individual casting their vote for Trump in the upcoming election and -2.81 represents our intercept value.
+
+The reason these groups appear to be missing one category is due to the way they were interpreted by our regression model. For each group in a predictor variable, their estimate value is computed in relation to a conditional group selected by our model where this value states the difference in log odds between these two groups. Thus, these predictor values take on a 0 or a 1 depending on which group a respondent is in and when all predictors are set to 0 this represents a respondent in the conditional group. 
+
+As such, Ai is an indicator variable representing the age group of a respondent, conditioned on the age group 18 to 29: A1 corresponds to those aged 30 to 39, A2 to those aged 40 to 49, A3 to those aged 50 to 59, and A4 representing those aged 60 and over.
+
+Gi is an indicator variable representing the gender of a respondent, conditioned on female respondents: G1 simply corresponds to respondents that are male.
+
+Ci is an indicator variable representing the region of a respondent, conditioned on the Northeastern region: C1 corresponds to those in the Midwestern region, C2 to those in the Southern region, and C3 to those in the Western region of the United States.
+
+Ri is an indicator variable representing the race of a respondent, conditioned on black or African American individuals: R1 corresponds to those of races other than black or white, and C2 corresponds to white respondents. 
+
+Lastly, Li is an indicator variable representing the home language used by a respondent, conditioned on those using English: L1 corresponds to those using a language other than Spanish or English, and L2 corresponds to those using Spanish as their primary language. 
+
+
+## Results 
+
+# Regression Model Results
+
 
 Observations
 In Table ___, we have displayed a table of summary statistics using ____________ which includes the predictor’s; estimate, standard error, z-value,  and p-value. Utilizing these values, we can determine the strength and significance of our predictor variables on __________.
@@ -564,7 +636,14 @@ As we can see, for Spanish speakers, the p-value and z-value both pass our  test
 ```{r}
 plot_summs(survey_glm_plot, plot.distributions = TRUE, inner_ci_level = .95)
 ```
-Graph ___ provides us with a visualization of these estimates as well as the distribution we expect around these estimates and thei 95% confidence intervals. The plot shows the log-odds estimates of each groups likelihood of voting for Biden. As we can see, just like our regression model suggested, white voters have an extremely low probability of voting for Biden in the election compared to black voters and those of other races have as well seem to heavily favor Trump. This helps to express the extreme significance a person's race has on their voting preference in the US.
+Graph ___ provides us with a visualization of these estimates as well as the distribution we expect around these estimates and their 95% confidence intervals. The plot shows the log-odds estimates of each groups likelihood of voting for Biden. As we can see, just like our regression model suggested, white voters have an extremely low probability of voting for Biden in the election compared to black voters and those of other races have as well seem to heavily favor Trump. This helps to express the extreme significance a person's race has on their voting preference in the US.
+
+```{r}
+plot(survey_glm, which = 4, id.n = 3)
+```
+Graph ___ plots the cook's distance score of all observation seen in our dataset by the model. Cook's distance is an estimate of the influence of outlying observations in a regression analysis. When data points result in overly large errors this can negatively affect our model's predictions as they are considered to influence the overall estimate computed. To evaluate these results we look for observations with a Cook's distance greater than 0.0008.
+As we can see from our plot there are a large number of values above this level with upper levels reaching almost 0.003. As a result, we are likely to run into some issues with our model's accuracy here. _ 
+This is not surprising however when we consider the wide range of personal factors that influence a person's vote. As we have only selected a few of these factors, having multiple influential outliers is something we completely expected thus we must be careful to remember this when analyzing the results of our forecast. 
 
 # Forecasting Results
 
@@ -582,6 +661,7 @@ cell_counts <- clean_strat_data %>%
 # Create Prediction Vector
 predictions <- predict.glm(survey_glm, se.fit = TRUE, cell_counts, type = "response")
 ```
+
 
 ```{r}
 # Add Predictions to cell counts
@@ -633,7 +713,7 @@ The highest prediction for a cell of black voters is at 0.22 coming from males a
 Continuing with this method of comparative statics we find further evidence supporting race’s strength as a predictor as altering any other factors from our highest estimate cell does not result in nearly the same decline in vote estimates. 
 We can do the same thing again if it is female voters and then shift to black vs white
  
-On the other hand, cells with the lowest estimates suggest a strong tendency to vote for Biden in the election. Examining these cells suggests that Biden has a great deal of support from black or African American voters as these groups all have estimates below 0.25. This shows how much black voters favor Biden over Trump _____________
+On the other hand, cells with the lowest estimates suggest a strong tendency to vote for Biden in the election. Examining these cells suggests that Biden has a great deal of support from black or African American voters as these groups all have estimates below 0.25. 
 When we look at the proportions of these cells however, we can see that many of these groups are not very well represented which will result in a less impactful increase in votes as they are outweighed by the more populated groups.
 The cells with the highest populations appear to have estimates much closer to 0.5 with the majority of them leaning slightly in favour of Trump. This suggests these smaller groups may in fact provide enough of a push for Biden to take office as the heavily populated groups remain relatively divided. 
 The first group that Biden appears to gain a significant amount of votes from are white females between 18 and 29 living in midwestern states. With an estimate of 0.37 and total size of 35887 respondents this group can provide a solid boost to Biden’s chances of winning the popular vote. 
@@ -673,7 +753,7 @@ Similarly in the home language used by respondents, those using languages other 
 In the end, our forecast suggests that Joe Biden will win the popular vote by only a very small margin. Most often, electoral votes in each state align with the popular vote due to the method with which electors are chosen. Thus, if there are not any inconsistencies with this belief, we will likely see Biden taking office for the next four years. 
 Factoring in the error we expect on this forecast, we can see that the presidential race will be exceptionally close as Trump is suggested to win on the upper bound of this error. As a result, we make this forecast with great caution and with the intention that further work be carried out to find a stronger prediction to either side. 
 Unsurprisingly, Trump seems to gain the most amount of votes from white males above the age of 30 across all regions but primarily in the southern region. Conversely, younger female voters of all races appear to heavily favor Biden. 
-There are many areas that we believe can have a significant effect on making our forecast inaccurate. The distribution of our predictor variables and the heavily outweighed groups we see can cause problems with our models as errors in the estimates of highly populated groups will create a much larger shift in the number of votes each candidate gets. Furthermore, the underrepresented groups can be problematic as our regression model has less data to work with here, leaving us with _______________
+There are many areas that we believe can have a significant effect on making our forecast inaccurate. The distribution of our predictor variables and the heavily outweighed groups we see can cause problems with our models as errors in the estimates of highly populated groups will create a much larger shift in the number of votes each candidate gets. Furthermore, the underrepresented groups can be problematic as our regression model has less data to work with here, leaving us with less overall confidence in our predictions for these groups.
 
 
 # Weaknesses and Future Work

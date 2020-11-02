@@ -1,5 +1,5 @@
 ---
-title: "Multilevel Regression Model Forecasts Biden Winning 52%"
+title: "MRP Model Forecasts Biden Winning 52% of Popular Vote in 2020 US Elections"
 author: "Kashaun Eghdam, Ankhee Paul, Timothy Regis, Chen Shupeng"
 date: "November, 2, 2020"
 output: pdf_document
@@ -145,7 +145,7 @@ clean_data %>%
 ```
 
 
-VOTE 2020:
+
 In our first plot, Graph 1, we display the results of which candidate respondents are likely to vote for in the 2020 election. We have isolated the data for this plot to display only Donald Trump or Joe Biden voters as these are the only two probable winners of the election and this is what we will base our forecasting on. 
 As we can see, Biden voters slightly outweigh Trump voters, coming in with a proportion of 52% compared to 48% respectively. This can give us an initial idea of what party voters are currently favouring and how we can expect to see the popular vote split up.
 The small proportional difference between candidates suggests that the presidential race will not be easily won by either party and forecasting the outcome will require thorough analysis.
@@ -162,7 +162,7 @@ clean_data %>%
   theme_minimal()
 ```
 
-AGE:
+
 Graph 2 displays the age distribution of respondents to the survey. It appears that the highest number of respondents fall into the age group 60 + with the other groups holding similar proportions at a lower level. This is likely a result of how we decided to group our age data as we chose the cap to be 60 +, this leaves a much larger gap for ages than our other 10 year groups. Due to this, this result was to be expected however, it may possibly result in a high standard error in our prediction for this group as it may contain too high of a variation of voters. 
 
 
@@ -179,7 +179,7 @@ clean_data %>%
 
 ```
 
-GENDER:
+
 From Graph 3, we can see an almost exactly even split between Female and Male respondents with proportions of approximately 50% each and a true difference of about 0.5%. This is not surprising at all considering the current gender proportions in the US were used for the weighting of the response data for this survey. As a result, our model and results should not be disturbed by this distribution.
 
 
@@ -355,7 +355,7 @@ clean_strat_data %>%
        ) +
   theme_minimal()
 ```
-AGE:
+
 Graph 7 plots the distribution in age groups we see across our data. Much like our survey data we see an extremely large proportion of respondents fall into the 60 + age group totaling over 35%. We can see the remaining groups making up much smaller proportions between 14% and 18% each. For the same reasons mentioned previously, this result was to be expected and we expect this to have the same possible result of standard error in our predictions that we must pay attention to. However, according to the latest statistic, people over the age of 65 make up 16 percent of the total population in the United States, and our data show that people over the age of 60 make up about 35 percent. This may cause some disruptions to our model’s strength as older respondents tend to vote for Biden. As a result of this, we may see a slight overestimation of the strengths of this predictor.
 
 
@@ -372,7 +372,7 @@ clean_strat_data %>%
        ) + 
   theme_minimal()
 ```
-GENDER: 
+
 In Graph 8, we display the proportion of each gender in our dataset. Again, we see an extremely close difference between Female and Male respondents, making up 52% and 48% of our dataset, respectively. The slightly higher proportional difference we see is most likely due simply to a variation in individuals contacted in this survey compared to our original data. As a result, we do not believe that this should cause any problem with our model's performance.
 
 
@@ -387,7 +387,7 @@ clean_strat_data %>%
   coord_flip() + 
   theme_minimal()
 ```
-RACES:
+
 From Graph 9, we see an extremely similar result in the race distribution of respondents to that of our original data. With White respondents making up over 78% of our data we are not surprised at all by this result given the real distribution of races in the US today and therefore do not believe that it will create any problems with our regression analysis.
 
 ```{r, echo=FALSE}
@@ -401,7 +401,7 @@ clean_strat_data %>%
   theme_minimal()
 
 ```
-LANGUAGES: 
+
 Much like the results seen in our original data, Graph 10 displays the proportions of household languages used by our respondents and signifies an extremely large proportion of English users. Making up almost 82% of our data this result is as exactly as expected. Examining Graph 9 again, we can see that the low proportions of other races seen in the US are the likely cause of this significant difference.
 
 
@@ -416,7 +416,6 @@ clean_strat_data %>%
   theme_minimal()
 ```
 
-REGION:
 Finally, in Graph 11, we have displayed the regional distribution of our respondents. As we can see, the large proportion of southern voters seen in our original survey dataset is present here as well with the other regions making up similarly smaller proportions. Again, Southern voters make up a total of 37% of this data exactly as expected given the regional distribution seen today. 
 
 Now that we have viewed all our our predictor variables and confirmed that there were no troubling observations in the data, we are ready to move on to developing our model and begin to make forecasts for the election based on this. 
@@ -578,9 +577,9 @@ Ri is an indicator variable representing the race of a respondent, conditioned o
 Lastly, Li is an indicator variable representing the home language used by a respondent, conditioned on those using English: L1 corresponds to those using a language other than Spanish or English, and L2 corresponds to those using Spanish as their primary language. 
 
 
-## 4 Results 
+# 4 Results 
 
-# 4.1 Regression Model Results
+## 4.1 Regression Model Results
 
 
 In Table 1, we have displayed a table of summary statistics using the summ() function from the jtools package which includes the predictor’s; estimate, standard error, z-value, and p-value. Utilizing these values, we can determine the strength and significance of our predictor variables on an individual's vote choice.
@@ -630,10 +629,13 @@ P and z values:
 As we can see, for Spanish speakers, the p-value and z-value both pass our  tests and let us confirm this category’s significance to our model.  On the other hand, the p and z values for the group of other languages did not satisfy either of these requirements and thus prevent us from rejecting its null hypothesis.
 
 Figure 1: Predictor Coefficients with Distribution Error and Confidence Interval
+
 ```{r, echo = FALSE,warning=FALSE, message=FALSE}
 plot_summs(survey_glm_plot, plot.distributions = TRUE, inner_ci_level = .95)
 ```
 Figure 1 provides us with a visualization of these estimates as well as the distribution we expect around these estimates and their 95% confidence intervals. The plot shows the log-odds estimates of each groups likelihood of voting for Biden. As we can see, just like our regression model suggested, white voters have an extremely low probability of voting for Biden in the election compared to black voters and those of other races have as well seem to heavily favor Trump. This helps to express the extreme significance a person's race has on their voting preference in the US.
+
+Figure 2: Cook's Distance for Observations
 
 ```{r, echo = FALSE}
 plot(survey_glm, which = 4, id.n = 3)
@@ -768,7 +770,9 @@ Since the US election is based on electoral votes out of each state, including s
 
 ## Appendix
 
-Code for this study can be found at: https://github.com/ankheepaul/PS4/blob/main/STA304PS4JCodeAppendix2.Rmd 
+Code for this study can be found at: 
+
+https://github.com/ankheepaul/PS4/blob/main/scripts/STA304PS4JCodeAppendix2.Rmd
 
 
 ## References

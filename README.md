@@ -6,7 +6,7 @@ Inputs contain data that are unchanged from their original. We use two datasets:
 The dataset we used in our report fall under copyright laws and thus we cannot include the direct data files.
 
 Survey data: 
-To obtain this datatset, first go to https://www.voterstudygroup.org/publication/nationscape-data-set and request to download the data file. Second then open email from Voter study group and select the link given. Next download dta file. next open folder, select "phase 2" and then select the last folder "ns20200625". In that folder will be one the data file which we will use to conduct our analysis.
+To obtain this datatset, first go to https://www.voterstudygroup.org/publication/nationscape-data-set and request to download the data file. Second then open email from Voter study group and select the link given. Next download dta file. Next open the folder, select "phase 2" and then select the last folder "ns20200625". In that folder will be one the data file which we will use to conduct our analysis.
 
 ACS data:
 To obtain the ACS dataset, first go to https://usa.ipums.org/usa/index.shtml and create an account. After 

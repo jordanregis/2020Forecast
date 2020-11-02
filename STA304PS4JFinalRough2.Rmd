@@ -630,7 +630,7 @@ P and z values:
 As we can see, for Spanish speakers, the p-value and z-value both pass our  tests and let us confirm this category’s significance to our model.  On the other hand, the p and z values for the group of other languages did not satisfy either of these requirements and thus prevent us from rejecting its null hypothesis.
 
 Figure 1: Predictor Coefficients with Distribution Error and Confidence Interval
-```{r, echo = FALSE}
+```{r, echo = FALSE,warning=FALSE, message=FALSE}
 plot_summs(survey_glm_plot, plot.distributions = TRUE, inner_ci_level = .95)
 ```
 Figure 1 provides us with a visualization of these estimates as well as the distribution we expect around these estimates and their 95% confidence intervals. The plot shows the log-odds estimates of each groups likelihood of voting for Biden. As we can see, just like our regression model suggested, white voters have an extremely low probability of voting for Biden in the election compared to black voters and those of other races have as well seem to heavily favor Trump. This helps to express the extreme significance a person's race has on their voting preference in the US.

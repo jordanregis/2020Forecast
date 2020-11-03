@@ -17,7 +17,9 @@ is finished proccessing which we use for our analysis.
 Outputs contain data that are modified from the input data, the report and supporting material.
 
 paper.rmd
+
 paper.pdf
+
 references.bib
 
 Scripts contain R scripts that take inputs and outputs and produce outputs. These are:

@@ -20,8 +20,6 @@ paper.rmd
 
 paper.pdf
 
-references.bib
-
 Scripts contain R scripts that take inputs and outputs and produce outputs. These are:
 
 data_cleaning_survey.R

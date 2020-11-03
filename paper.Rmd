@@ -16,6 +16,7 @@ library(tidyverse)
 library(labelled)
 library(jtools)
 library(boot)
+library(kableExtra)
 ```
 
 
@@ -545,26 +546,22 @@ Next to further validate our model we tested to find the MSPE and MSRes of our m
 
 ## 3.3 Final Model
 
-```{r, include = FALSE}
-summary(survey_glm)
-```
 
 Table 1: Summary Statistics of Regression Model
 ```{r, echo = FALSE}
-summ(model = survey_glm, model.fit = FALSE)
+broom::tidy(survey_glm) %>% 
+  kable(digits = 2)
 ```
-
-
 
 From this output, we can determine the formula for our final regression model:
 
-log(Y/(1-Y)) = -2.81 + 0.47A1 + 0.65A2 + 0.61A3 + 0.45A4 + 0.43G1 + 0.11C1 + 0.45C2 + 0.03C3 + 1.58R1 + 2.18R2 - 0.18L1 - 0.36L2
+log(Y/(1-Y)) = B0 + B1A1 + B2A2 + B3A3 + B4A4 + B5G1 + B6C1 + B7C2 + B8C3 + B9R1 + B10R2 + B11L1 + B12L2
 
 Where:
 
-Y represents the probability of an individual casting their vote for Trump in the upcoming election and -2.81 represents our intercept value.
+Y represents the probability of an individual casting their vote for Trump in the upcoming election, B0 represents our intercept value, and B1 through B12 are the coefficient estimate for each corresponding predictor value.
 
-The reason these groups appear to be missing one category is due to the way they were interpreted by our regression model. For each group in a predictor variable, their estimate value is computed in relation to a conditional group selected by our model where this value states the difference in log odds between these two groups. Thus, these predictor values take on a 0 or a 1 depending on which group a respondent is in and when all predictors are set to 0 this represents a respondent in the conditional group. 
+The reason these predictor groups appear to be missing one category is due to the way they were interpreted by our regression model. For each group in a predictor variable, their estimate value is computed in relation to a conditional group selected by our model where this value states the difference in log odds between these two groups. Thus, these predictor values take on a 0 or a 1 depending on which group a respondent is in and when all predictors are set to 0 this represents a respondent in the conditional group. 
 
 As such, Ai is an indicator variable representing the age group of a respondent, conditioned on the age group 18 to 29: A1 corresponds to those aged 30 to 39, A2 to those aged 40 to 49, A3 to those aged 50 to 59, and A4 representing those aged 60 and over.
 
@@ -780,6 +777,10 @@ https://github.com/ankheepaul/PS4/blob/main/scripts/STA304PS4JCodeAppendix2.Rmd
 Angelo Canty and Brian Ripley (2020). boot: Bootstrap R (S-Plus) Functions. R package version 1.3-25.
 
 Democracy Fund Voter Study Group,Chris Tausanovitch and Lynn Vavreck. 2020. “Nationscape Data Set.” https://www.voterstudygroup.org/publication/nationscape-data-set.
+
+Hao Zhu (2020). kableExtra: Construct Complex Table with
+  'kable' and Pipe Syntax. R package version 1.3.1.
+  https://CRAN.R-project.org/package=kableExtra
 
 Happe, Mackenzie, and Kate Sullivan. 2020. Where Trump and Biden Stand on Major Policy Issues. CNN. https://www.cnn.com/2020/09/29/politics/trump-vs-biden-2020-election-policies/index.html.
 

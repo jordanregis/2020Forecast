@@ -27,3 +27,6 @@ code to clean the survey dataset
 
 data_preparation_poststrat.R
 code to clean the post stratified dataset
+
+appendix.rmd
+code for the entire paper

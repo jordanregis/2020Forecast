@@ -769,7 +769,7 @@ Since the US election is based on electoral votes out of each state, including s
 
 Code for this study can be found at: 
 
-https://github.com/ankheepaul/PS4/blob/main/scripts/STA304PS4JCodeAppendix2.Rmd
+https://github.com/ankheepaul/PS4/blob/main/scripts/appendix.Rmd
 
 
 ## References

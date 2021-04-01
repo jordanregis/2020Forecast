@@ -25,7 +25,7 @@ library(kableExtra)
 2020, being an erratic year, also marks the much anticipated results of the United States Presidential election between the front-runners Donald Trump and Joe Biden, on November 3rd. In this paper, we use both Nationscape and ACS survey data to conduct a multilevel regression analysis to determine the impact of social-demographic variables such as age, gender, language, region, and race, on an individual's voting choice in the election. We discovered that age and race are strong predictors of respondents’ presidential choice and expect Biden to win 52 percent of the national popular vote, with a 2 percent margin of error. While not perfect, our findings are integral for gaining an initial outlook on the future of the United States and can be used in a similar fashion to study subsequent elections. 
 
 ## Keywords
-Forecasting, 2020 US Election, Trump, Biden, Multilevel Regression with Post Stratification
+Forecasting, 2020 US Election, Trump, Biden, Multilevel Regression with Post Stratification 
 
 # 1 Introduction
 
